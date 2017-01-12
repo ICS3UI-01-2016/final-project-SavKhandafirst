@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
@@ -21,6 +22,9 @@ public class Game extends JComponent{
     long desiredFPS = 60;
     long desiredTime = (1000)/desiredFPS;
     
+    // game variables
+    // create the size of each individual square to make the checkerboard
+    int squares = 80;
 
     
     // drawing of the game happens in here
@@ -33,6 +37,27 @@ public class Game extends JComponent{
         g.clearRect(0, 0, WIDTH, HEIGHT);
         
         // GAME DRAWING GOES HERE 
+        
+        // Draw Background Screen
+        g.setColor(Color.cyan);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+        
+        // set colour of the line of the squares
+        g.setColor(Color.black);
+        
+        // draw the squares
+        for(int x = 0; x < 6; x++){
+            for(int y = 0; y < 7; y++){
+                g.drawRect(120 + y*squares, 115 + x*squares, squares, squares);
+            }
+        }
+        // set colour of player ones chip
+        g.setColor(Color.red);
+        g.fillOval(0, 0, squares, squares);
+        
+        // draw the circle
+        
+        
         
         
         // GAME DRAWING ENDS HERE
