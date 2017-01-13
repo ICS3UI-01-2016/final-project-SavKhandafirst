@@ -2,6 +2,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -11,7 +15,7 @@ import javax.swing.JFrame;
  */
 
 
-public class Game extends JComponent{
+public class Game extends JComponent implements KeyListener, MouseListener{
 
     // Height and Width of our game
     static final int WIDTH = 800;
@@ -23,6 +27,8 @@ public class Game extends JComponent{
     long desiredTime = (1000)/desiredFPS;
     
     // game variables
+    
+    
     // create the size of each individual square to make the checkerboard
     int squares = 80;
 
@@ -39,7 +45,7 @@ public class Game extends JComponent{
         // GAME DRAWING GOES HERE 
         
         // Draw Background Screen
-        g.setColor(Color.cyan);
+        g.setColor(Color.yellow);
         g.fillRect(0, 0, WIDTH, HEIGHT);
         
         // set colour of the line of the squares
@@ -51,11 +57,25 @@ public class Game extends JComponent{
                 g.drawRect(120 + y*squares, 115 + x*squares, squares, squares);
             }
         }
+        // set the colour for the buttons
+        g.setColor(Color.GRAY);
+        // draw the buttons
+        for(int x = 0; x < 1; x++){
+            for(int y = 0; y < 7; y++){
+                g.fillRect(120 + y*squares, 80 + x*squares, squares, 20);
+            }
+        }
+        
         // set colour of player ones chip
         g.setColor(Color.red);
-        g.fillOval(0, 0, squares, squares);
         
-        // draw the circle
+        
+        
+//        g.fillOval(0, 0, squares, squares);
+        
+        // set colour of player twos chip
+        g.setColor(Color.blue);
+       
         
         
         
@@ -130,8 +150,53 @@ public class Game extends JComponent{
         frame.pack();
         // shows the window to the user
         frame.setVisible(true);
-        
+        frame.addKeyListener(game);
+        game.addMouseListener(game);
         // starts my game loop
         game.run();
+    }
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+    
+    @Override
+    public void keyPressed(KeyEvent e){
+        
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent e){
+        
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        int button = e.getButton();
+        int x = e.getX();
+        int y = e.getY();
+        System.out.println("clicked: (" + x + ", " + y + ")");
+        int circle = e.getButton();
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
     }
 }
