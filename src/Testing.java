@@ -357,6 +357,12 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
 
         music.setRepeat(dead);
         music.play();
+        music.setRepeat(!dead);
+        music.play();
+        music.setRepeat(dead);
+        music.play();
+        music.setRepeat(!dead);
+        music.play();
         
         // the main game loop section
         // game will end if you set done = false;
