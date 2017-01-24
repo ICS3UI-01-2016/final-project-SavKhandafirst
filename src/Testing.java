@@ -355,7 +355,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         long startTime;
         long deltaTime;
 
-        
+        music.setRepeat(dead);
         music.play();
         
         // the main game loop section
