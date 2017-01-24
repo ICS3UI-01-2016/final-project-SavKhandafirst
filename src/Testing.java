@@ -1,4 +1,5 @@
 
+import jaco.mp3.player.MP3Player;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -152,6 +153,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     // back button
     Rectangle backButton = new Rectangle(690, 10, 100, 50);
 
+    MP3Player music = new MP3Player(new File("WHO IS THE BEST  Steph Curry - CP3 - Kyrie Irving - Russell Westbrook - JohnWall.mp3"));
+    
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
     // NOTE: This is already double buffered!(helps with framerate/speed)
@@ -352,6 +355,9 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         long startTime;
         long deltaTime;
 
+        
+        music.play();
+        
         // the main game loop section
         // game will end if you set done = false;
         boolean done = false;
@@ -363,7 +369,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             // GAME LOGIC STARTS HERE 
             if (clicked) {
                 if (start) {
-
+                    
                 // make the game stop when a collision happens
                     // row one collisons
                     if (usersCar.x >= (carLaneOneRowOne.x - Xhitbox) && usersCar.x <= (carLaneOneRowOne.x + Xhitbox)) {
@@ -846,7 +852,6 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         // get the x and y coordinates on the screen
         int x = e.getX();
         int y = e.getY();
-        System.out.println("clicked: (" + x + ", " + y + ")");
         
         // start button
         if (x >= 10 && x <= 192) {
