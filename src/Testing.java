@@ -1143,7 +1143,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             }
                         }
                         // get the players car to move right
-                        if (usersCar.x < 610) {
+                        if (usersCar.x <= 601) {
                             if (carRight == true) {
                                 usersCar.x = usersCar.x + speed;
 
