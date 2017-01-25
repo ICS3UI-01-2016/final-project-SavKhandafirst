@@ -69,6 +69,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     boolean clicked = false;
     // clicked How To Play
     boolean clickedTwo = false;
+    // music player
+    boolean musicplay = true;
     // set car speed
     int speed = 25;
     // set the speed of ther other cars
@@ -94,20 +96,22 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     int rowSpace = 200;
     // set timer to speed up game
     int time = 1200;
+    int musicTimer = 32400;
     // hitbox for x coordinates side
     int Xhitbox = 80;
     // hitbox for y coordinates side
     int Yhitbox = 170;
     // car setpoint y coordinate 
-    int setpoint = -6000;
+    int setpoint = -11400;
     // set the location of the players car
-    Rectangle usersCar = new Rectangle(365, 650, 90, 180);
+    Rectangle usersCar = new Rectangle(350, 650, 90, 180);
     // make positions in the array on each of the lanes on the roads
     Rectangle[] otherCars = new Rectangle[4];
+    
     // For Row One
-    Rectangle carLaneOneRowOne = new Rectangle(115, 0, 90, 180);
-    Rectangle carLaneTwoRowOne = new Rectangle(270, 0, 90, 180);
-    Rectangle carLaneFourRowOne = new Rectangle(590, 0, 90, 180);
+    Rectangle carLaneOneRowOne = new Rectangle(115, 100, 90, 180);
+    Rectangle carLaneTwoRowOne = new Rectangle(270, 100, 90, 180);
+    Rectangle carLaneFourRowOne = new Rectangle(590, 100, 90, 180);
     // For Row Two
     Rectangle carLaneOneRowTwo = new Rectangle(115, -600, 90, 180);
     Rectangle carLaneFourRowTwo = new Rectangle(590, -600, 90, 180);
@@ -142,10 +146,42 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     Rectangle carLaneOneRowEleven = new Rectangle(115, -6000, 90, 180);
     Rectangle carLaneTwoRowEleven = new Rectangle(270, -6000, 90, 180);
     Rectangle carLaneFourRowEleven = new Rectangle(590, -6000, 90, 180);
+    // For Row Twelve
+    Rectangle carLaneOneRowTwelve = new Rectangle(115, -6600, 90, 180);
+    Rectangle carLaneTwoRowTwelve = new Rectangle(270, -6600, 90, 180);
+    Rectangle carLaneThreeRowTwelve = new Rectangle(435, -6600, 90, 180);
+    // For Row Thirteen
+    Rectangle carLaneOneRowThirteen = new Rectangle(115, -7200, 90, 180);
+    Rectangle carLaneFourRowThirteen = new Rectangle(590, -7200, 90, 180);
+    // For Row Fourteen
+    Rectangle carLaneOneRowFourteen = new Rectangle(115, -7800, 90, 180);
+    Rectangle carLaneThreeRowFourteen = new Rectangle(435, -7800, 90, 180);
+    Rectangle carLaneFourRowFourteen = new Rectangle(590, -7800, 90, 180);
+    // for row fifteen
+    Rectangle carLaneTwoRowFifteen = new Rectangle(270, -8400, 90, 180);
+    Rectangle carLaneFourRowFifteen = new Rectangle(590, -8400, 90, 180);
+    // For Row sixteen
+    Rectangle carLaneOneRowSixteen = new Rectangle(115, -9000, 90, 180);
+    Rectangle carLaneThreeRowSixteen = new Rectangle(435, -9000, 90, 180);
+    // for row seventeen
+    Rectangle carLaneTwoRowSeventeen = new Rectangle(270, -9600, 90, 180);
+    Rectangle carLaneThreeRowSeventeen = new Rectangle(435, -9600, 90, 180);
+    // For Row Eighteen
+    Rectangle carLaneOneRowEighteen = new Rectangle(115, -10200, 90, 180);
+    Rectangle carLaneTwoRowEighteen = new Rectangle(270, -10200, 90, 180);
+    // For Row Nineteen
+    Rectangle carLaneThreeRowNineteen = new Rectangle(435, -10800, 90, 180);
+    Rectangle carLaneFourRowNineteen = new Rectangle(590, -10800, 90, 180);
+    // For Row Twenty
+    Rectangle carLaneTwoRowTwenty = new Rectangle(270, -11400, 90, 180);
+    Rectangle carLaneThreeRowTwenty = new Rectangle(435, -11400, 90, 180);
+    Rectangle carLaneFourRowTwenty = new Rectangle(590, -11400, 90, 180);
+    
     // Repeat Background
     Rectangle backgroundOne = new Rectangle(0, 0, 800, 450);
     Rectangle backgroundTwo = new Rectangle(0, 450, 800, 450);
     Rectangle backgroundThree = new Rectangle(0, -450, 800, 450);
+    
     // start page
     Rectangle frontPage = new Rectangle(0, 0, WIDTH, HEIGHT);
     // how to play page
@@ -153,6 +189,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     // back button
     Rectangle backButton = new Rectangle(690, 10, 100, 50);
 
+    // add music file
     MP3Player music = new MP3Player(new File("WHO IS THE BEST  Steph Curry - CP3 - Kyrie Irving - Russell Westbrook - JohnWall.mp3"));
     
     // drawing of the game happens in here
@@ -259,6 +296,45 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             g.drawImage(carFive, carLaneTwoRowEleven.x, carLaneTwoRowEleven.y, carLaneTwoRowEleven.width, carLaneTwoRowEleven.height, null);
             g.drawImage(carSix, carLaneFourRowEleven.x, carLaneFourRowEleven.y, carLaneFourRowEleven.width, carLaneFourRowEleven.height, null);
             
+            // draw the cars on row twelve
+            g.drawImage(carSeven, carLaneOneRowTwelve.x, carLaneOneRowTwelve.y, carLaneOneRowTwelve.width, carLaneOneRowTwelve.height, null);
+            g.drawImage(carOne, carLaneTwoRowTwelve.x, carLaneTwoRowTwelve.y, carLaneTwoRowTwelve.width, carLaneTwoRowTwelve.height, null);
+            g.drawImage(carTwo, carLaneThreeRowTwelve.x, carLaneThreeRowTwelve.y, carLaneThreeRowTwelve.width, carLaneThreeRowTwelve.height, null);
+
+            // draw the cars on row thirteen
+            g.drawImage(carThree, carLaneOneRowThirteen.x, carLaneOneRowThirteen.y, carLaneOneRowThirteen.width, carLaneOneRowThirteen.height, null);
+            g.drawImage(carFour, carLaneFourRowThirteen.x, carLaneFourRowThirteen.y, carLaneFourRowThirteen.width, carLaneFourRowThirteen.height, null);
+            
+            // draw the cars on row fourteen
+            g.drawImage(carFive, carLaneOneRowFourteen.x, carLaneOneRowFourteen.y, carLaneOneRowFourteen.width, carLaneOneRowFourteen.height, null);
+            g.drawImage(carSix, carLaneThreeRowFourteen.x, carLaneThreeRowFourteen.y, carLaneThreeRowFourteen.width, carLaneThreeRowFourteen.height, null);
+            g.drawImage(carSeven, carLaneFourRowFourteen.x, carLaneFourRowFourteen.y, carLaneFourRowFourteen.width, carLaneFourRowFourteen.height, null);
+            
+            // draw the cars on row fifteen
+            g.drawImage(carOne, carLaneTwoRowFifteen.x, carLaneTwoRowFifteen.y, carLaneTwoRowFifteen.width, carLaneTwoRowFifteen.height, null);
+            g.drawImage(carTwo, carLaneFourRowFifteen.x, carLaneFourRowFifteen.y, carLaneFourRowFifteen.width, carLaneFourRowFifteen.height, null);
+
+            // draw the cars on row sixteen 
+            g.drawImage(carThree, carLaneOneRowSixteen.x, carLaneOneRowSixteen.y, carLaneOneRowSixteen.width, carLaneOneRowSixteen.height, null);
+            g.drawImage(carFour, carLaneThreeRowSixteen.x, carLaneThreeRowSixteen.y, carLaneThreeRowSixteen.width, carLaneThreeRowSixteen.height, null);
+            
+            // draw the cars on row seventeen
+            g.drawImage(carFive, carLaneTwoRowSeventeen.x, carLaneTwoRowSeventeen.y, carLaneTwoRowSeventeen.width, carLaneTwoRowSeventeen.height, null);
+            g.drawImage(carSix, carLaneThreeRowSeventeen.x, carLaneThreeRowSeventeen.y, carLaneThreeRowSeventeen.width, carLaneThreeRowSeventeen.height, null);
+            
+            // draw the cars on row eighteen
+            g.drawImage(carSeven, carLaneOneRowEighteen.x, carLaneOneRowEighteen.y, carLaneOneRowEighteen.width, carLaneOneRowEighteen.height, null);
+            g.drawImage(carOne, carLaneTwoRowEighteen.x, carLaneTwoRowEighteen.y, carLaneTwoRowEighteen.width, carLaneTwoRowEighteen.height, null);
+            
+            // draw the cars on row nineteen
+            g.drawImage(carTwo, carLaneThreeRowNineteen.x, carLaneThreeRowNineteen.y, carLaneThreeRowNineteen.width, carLaneThreeRowNineteen.height, null);
+            g.drawImage(carThree, carLaneFourRowNineteen.x, carLaneFourRowNineteen.y, carLaneFourRowNineteen.width, carLaneFourRowNineteen.height, null);
+            
+            // draw the cars on row twenty
+            g.drawImage(carFour, carLaneTwoRowTwenty.x, carLaneTwoRowTwenty.y, carLaneTwoRowTwenty.width, carLaneTwoRowTwenty.height, null);
+            g.drawImage(carFive, carLaneThreeRowTwenty.x, carLaneThreeRowTwenty.y, carLaneThreeRowTwenty.width, carLaneThreeRowTwenty.height, null);
+            g.drawImage(carSix, carLaneFourRowTwenty.x, carLaneFourRowTwenty.y, carLaneFourRowTwenty.width, carLaneFourRowTwenty.height, null);
+
             // set the score font and display
             g.setColor(Color.red);
             g.setFont(scoreFont);
@@ -292,7 +368,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         if (restart) {
 
             // set the users car position back to normal
-            usersCar = new Rectangle(365, 650, 90, 180);
+            usersCar = new Rectangle(350, 650, 90, 180);
 
             // booleans become false
             dead = false;
@@ -305,44 +381,93 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
 
             // reset the car positions
             // For Row One
-            carLaneOneRowOne = new Rectangle(115, 0, 90, 180);
-            carLaneTwoRowOne = new Rectangle(270, 0, 90, 180);
-            carLaneFourRowOne = new Rectangle(590, 0, 90, 180);
+            carLaneOneRowOne = new Rectangle(115, 100, 90, 180);
+            carLaneTwoRowOne = new Rectangle(270, 100, 90, 180);
+            carLaneFourRowOne = new Rectangle(590, 100, 90, 180);
+            
             // For Row Two
             carLaneOneRowTwo = new Rectangle(115, -600, 90, 180);
             carLaneFourRowTwo = new Rectangle(590, -600, 90, 180);
+            
             // For Row Three
             carLaneTwoRowThree = new Rectangle(270, -1200, 90, 180);
             carLaneFourRowThree = new Rectangle(590, -1200, 90, 180);
+            
             // For Row Four
             carLaneTwoRowFour = new Rectangle(270, -1800, 90, 180);
             carLaneThreeRowFour = new Rectangle(435, -1800, 90, 180);
+            
             // For Row Five
             carLaneThreeRowFive = new Rectangle(435, -2400, 90, 180);
             carLaneFourRowFive = new Rectangle(590, -2400, 90, 180);
+            
             // For Row Six
             carLaneOneRowSix = new Rectangle(115, -3000, 90, 180);
             carLaneTwoRowSix = new Rectangle(270, -3000, 90, 180);
             carLaneThreeRowSix = new Rectangle(435, -3000, 90, 180);
+            
             // For Row Seven
             carLaneOneRowSeven = new Rectangle(115, -3600, 90, 180);
             carLaneThreeRowSeven = new Rectangle(435, -3600, 90, 180);
             carLaneFourRowSeven = new Rectangle(590, -3600, 90, 180);
+            
             // For Row Eight
             carLaneOneRowEight = new Rectangle(115, -4200, 90, 180);
             carLaneThreeRowEight = new Rectangle(435, -4200, 90, 180);
+            
             // For Row Nine
             carLaneOneRowNine = new Rectangle(115, -4800, 90, 180);
             carLaneTwoRowNine = new Rectangle(270, -4800, 90, 180);
+            
             // For Row Ten
             carLaneTwoRowTen = new Rectangle(270, -5400, 90, 180);
             carLaneThreeRowTen = new Rectangle(435, -5400, 90, 180);
             carLaneFourRowTen = new Rectangle(590, -5400, 90, 180);
+            
             // For Row Eleven
             carLaneOneRowEleven = new Rectangle(115, -6000, 90, 180);
             carLaneTwoRowEleven = new Rectangle(270, -6000, 90, 180);
             carLaneFourRowEleven = new Rectangle(590, -6000, 90, 180);
-
+            
+            // For Row Twelve
+            carLaneOneRowTwelve = new Rectangle(115, -6600, 90, 180);
+            carLaneTwoRowTwelve = new Rectangle(270, -6600, 90, 180);
+            carLaneThreeRowTwelve = new Rectangle(435, -6600, 90, 180);
+            
+            // for row thirteen
+            carLaneOneRowThirteen = new Rectangle(115, -7200, 90, 180);
+            carLaneFourRowThirteen = new Rectangle(590, -7200, 90, 180);
+            
+            // for row fourteen
+            carLaneOneRowFourteen = new Rectangle(115, -7800, 90, 180);
+            carLaneThreeRowFourteen = new Rectangle(435, -7800, 90, 180);
+            carLaneFourRowFourteen = new Rectangle(590, -7800, 90, 180);
+            
+            // for row fifteen
+            carLaneTwoRowFifteen = new Rectangle(270, -8400, 90, 180);
+            carLaneFourRowFifteen = new Rectangle(590, -8400, 90, 180);
+            
+            // For Row sixteen
+            carLaneOneRowSixteen = new Rectangle(115, -9000, 90, 180);
+            carLaneThreeRowSixteen = new Rectangle(435, -9000, 90, 180);
+            
+            // for row seventeen
+            carLaneTwoRowSeventeen = new Rectangle(270, -9600, 90, 180);
+            carLaneThreeRowSeventeen = new Rectangle(435, -9600, 90, 180);
+            
+            // For Row Eighteen
+            carLaneOneRowEighteen = new Rectangle(115, -10200, 90, 180);
+            carLaneTwoRowEighteen = new Rectangle(270, -10200, 90, 180);
+            
+            // For Row Nineteen
+            carLaneThreeRowNineteen = new Rectangle(435, -10800, 90, 180);
+            carLaneFourRowNineteen = new Rectangle(590, -10800, 90, 180);
+            
+            // For Row Twenty
+            carLaneTwoRowTwenty = new Rectangle(270, -11400, 90, 180);
+            carLaneThreeRowTwenty = new Rectangle(435, -11400, 90, 180);
+            carLaneFourRowTwenty = new Rectangle(590, -11400, 90, 180);
+              
         }
         restart = false;
     }
@@ -355,14 +480,14 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         long startTime;
         long deltaTime;
 
-        music.setRepeat(dead);
+        music.setRepeat(musicplay);
         music.play();
-        music.setRepeat(!dead);
-        music.play();
-        music.setRepeat(dead);
-        music.play();
-        music.setRepeat(!dead);
-        music.play();
+        
+        musicTimer = musicTimer - 1; 
+        if(musicTimer == 0){
+            music.setRepeat(musicplay);
+            musicTimer = 32400;
+        }
         
         // the main game loop section
         // game will end if you set done = false;
@@ -516,7 +641,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    // row elven collisons
+                    // row eleven collisons
                     if (usersCar.x >= (carLaneOneRowEleven.x - Xhitbox) && usersCar.x <= (carLaneOneRowEleven.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowEleven.y - Yhitbox) && usersCar.y <= (carLaneOneRowEleven.y + Yhitbox)) {
                             dead = true;
@@ -529,6 +654,128 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                     }
                     if (usersCar.x >= (carLaneFourRowEleven.x - Xhitbox) && usersCar.x <= (carLaneFourRowEleven.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneFourRowEleven.y - Yhitbox) && usersCar.y <= (carLaneFourRowEleven.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row twelve collisions
+                    if (usersCar.x >= (carLaneOneRowTwelve.x - Xhitbox) && usersCar.x <= (carLaneOneRowTwelve.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneOneRowTwelve.y - Yhitbox) && usersCar.y <= (carLaneOneRowTwelve.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneTwoRowTwelve.x - Xhitbox) && usersCar.x <= (carLaneTwoRowTwelve.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneTwoRowTwelve.y - Yhitbox) && usersCar.y <= (carLaneTwoRowTwelve.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneThreeRowTwelve.x - Xhitbox) && usersCar.x <= (carLaneThreeRowTwelve.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowTwelve.y - Yhitbox) && usersCar.y <= (carLaneThreeRowTwelve.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row thirteen collisons
+                    if (usersCar.x >= (carLaneOneRowThirteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowThirteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneOneRowThirteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowThirteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneFourRowThirteen.x - Xhitbox) && usersCar.x <= (carLaneFourRowTwo.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneFourRowThirteen.y - Yhitbox) && usersCar.y <= (carLaneFourRowThirteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row fourteen collisions
+                    if (usersCar.x >= (carLaneOneRowFourteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowFourteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneOneRowFourteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowFourteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneThreeRowFourteen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowFourteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowFourteen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowFourteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneFourRowFourteen.x - Xhitbox) && usersCar.x <= (carLaneFourRowFourteen.y + Xhitbox)) {
+                        if (usersCar.y >= (carLaneFourRowFourteen.y - Yhitbox) && usersCar.y <= (carLaneFourRowFourteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row fifteen collisions
+                    if (usersCar.x >= (carLaneTwoRowFifteen.x - Xhitbox) && usersCar.x <= (carLaneTwoRowFifteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneTwoRowFifteen.y - Yhitbox) && usersCar.y <= (carLaneTwoRowFifteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneFourRowFifteen.x - Xhitbox) && usersCar.x <= (carLaneFourRowFifteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneFourRowFifteen.y - Yhitbox) && usersCar.y <= (carLaneFourRowFifteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row sixteen collisions
+                    if (usersCar.x >= (carLaneThreeRowSixteen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowSixteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowSixteen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowSixteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneOneRowSixteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowSixteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneOneRowSixteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowSixteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row seventeen collisions
+                    if (usersCar.x >= (carLaneTwoRowSeventeen.x - Xhitbox) && usersCar.x <= (carLaneTwoRowSeventeen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneTwoRowSeventeen.y - Yhitbox) && usersCar.y <= (carLaneTwoRowSeventeen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneThreeRowSeventeen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowSeventeen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowSeventeen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowSeventeen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row eighteen collisions
+                    if (usersCar.x >= (carLaneOneRowEighteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowEighteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneOneRowEighteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowEighteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneTwoRowEighteen.x - Xhitbox) && usersCar.x <= (carLaneTwoRowEighteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneTwoRowEighteen.y - Yhitbox) && usersCar.y <= (carLaneTwoRowEighteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    // row nineteen collisions
+                    if (usersCar.x >= (carLaneThreeRowNineteen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowNineteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowNineteen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowNineteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneFourRowNineteen.x - Xhitbox) && usersCar.x <= (carLaneFourRowNineteen.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneFourRowNineteen.y - Yhitbox) && usersCar.y <= (carLaneFourRowNineteen.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    
+                    // row twenty collisions
+                    if (usersCar.x >= (carLaneTwoRowTwenty.x - Xhitbox) && usersCar.x <= (carLaneTwoRowTwenty.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneTwoRowTwenty.y - Yhitbox) && usersCar.y <= (carLaneTwoRowTwenty.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneThreeRowTwenty.x - Xhitbox) && usersCar.x <= (carLaneThreeRowTwenty.x + Xhitbox)) {
+                        if (usersCar.y >= (carLaneThreeRowTwenty.y - Yhitbox) && usersCar.y <= (carLaneThreeRowTwenty.y + Yhitbox)) {
+                            dead = true;
+                        }
+                    }
+                    if (usersCar.x >= (carLaneFourRowTwenty.x - Xhitbox) && usersCar.x <= (carLaneFourRowTwenty.y + Xhitbox)) {
+                        if (usersCar.y >= (carLaneFourRowTwenty.y - Yhitbox) && usersCar.y <= (carLaneFourRowTwenty.y + Yhitbox)) {
                             dead = true;
                         }
                     }
@@ -597,10 +844,49 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                         carLaneThreeRowTen.y = carLaneThreeRowTen.y + speedOthers;
                         carLaneFourRowTen.y = carLaneFourRowTen.y + speedOthers;
                         
-                        // set the speed for the cars on row one
+                        // set the speed for the cars on row eleven
                         carLaneOneRowEleven.y = carLaneOneRowEleven.y + speedOthers;
                         carLaneTwoRowEleven.y = carLaneTwoRowEleven.y + speedOthers;
                         carLaneFourRowEleven.y = carLaneFourRowEleven.y + speedOthers;
+                        
+                        // set the speed for the cars on row twelve
+                        carLaneOneRowTwelve.y = carLaneOneRowTwelve.y + speedOthers;
+                        carLaneTwoRowTwelve.y = carLaneTwoRowTwelve.y + speedOthers;
+                        carLaneThreeRowTwelve.y = carLaneThreeRowTwelve.y + speedOthers;
+                        
+                        // set the speed for the cars on row thirteen
+                        carLaneOneRowThirteen.y = carLaneOneRowThirteen.y + speedOthers;
+                        carLaneFourRowThirteen.y = carLaneFourRowThirteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row fourteen
+                        carLaneOneRowFourteen.y = carLaneOneRowFourteen.y + speedOthers;
+                        carLaneThreeRowFourteen.y = carLaneThreeRowFourteen.y + speedOthers;
+                        carLaneFourRowFourteen.y = carLaneFourRowFourteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row fifteen
+                        carLaneTwoRowFifteen.y = carLaneTwoRowFifteen.y + speedOthers;
+                        carLaneFourRowFifteen.y = carLaneFourRowFifteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row sixteen
+                        carLaneOneRowSixteen.y = carLaneOneRowSixteen.y + speedOthers;
+                        carLaneThreeRowSixteen.y = carLaneThreeRowSixteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row seventeen
+                        carLaneTwoRowSeventeen.y = carLaneTwoRowSeventeen.y + speedOthers;
+                        carLaneThreeRowSeventeen.y = carLaneThreeRowSeventeen.y + speedOthers;
+                        
+                        // set the speed for the cars on row eighteen
+                        carLaneOneRowEighteen.y = carLaneOneRowEighteen.y + speedOthers;
+                        carLaneTwoRowEighteen.y = carLaneTwoRowEighteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row nineteen
+                        carLaneThreeRowNineteen.y = carLaneThreeRowNineteen.y + speedOthers;
+                        carLaneFourRowNineteen.y = carLaneFourRowNineteen.y + speedOthers;
+                        
+                        // set the speed for the cars on row ten
+                        carLaneTwoRowTwenty.y = carLaneTwoRowTwenty.y + speedOthers;
+                        carLaneThreeRowTwenty.y = carLaneThreeRowTwenty.y + speedOthers;
+                        carLaneFourRowTwenty.y = carLaneFourRowTwenty.y + speedOthers;
 
                         // set the background to loop back
                         if (backgroundOne.y >= 900) {
@@ -744,6 +1030,109 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             score = score + addScore;
                         }
                         
+                        // row twelve cars
+                        if (carLaneOneRowTwelve.y >= 900) {
+                            carLaneOneRowTwelve.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneTwoRowTwelve.y >= 900) {
+                            carLaneTwoRowTwelve.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneThreeRowTwelve.y >= 900) {
+                            carLaneThreeRowTwelve.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // for thirteen cars
+                        if (carLaneOneRowThirteen.y >= 900) {
+                            carLaneOneRowThirteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneFourRowThirteen.y >= 900) {
+                            carLaneFourRowThirteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row fourteen cars
+                        if (carLaneOneRowFourteen.y >= 900) {
+                            carLaneOneRowFourteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneThreeRowFourteen.y >= 900) {
+                            carLaneThreeRowFourteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneFourRowFourteen.y >= 900) {
+                            carLaneFourRowFourteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row fifteen cars
+                        if (carLaneTwoRowFifteen.y >= 900) {
+                            carLaneTwoRowFifteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneFourRowFifteen.y >= 900) {
+                            carLaneFourRowFifteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row sixteen cars
+                        if (carLaneOneRowSixteen.y >= 900) {
+                            carLaneOneRowSixteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneThreeRowSixteen.y >= 900) {
+                            carLaneThreeRowSixteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row seventeen cars
+                        if (carLaneTwoRowSeventeen.y >= 900) {
+                            carLaneTwoRowSeventeen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneThreeRowSeventeen.y >= 900) {
+                            carLaneThreeRowSeventeen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row eighteen cars
+                        if (carLaneOneRowEighteen.y >= 900) {
+                            carLaneOneRowEighteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneTwoRowEighteen.y >= 900) {
+                            carLaneTwoRowEighteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row nineteen cars
+                        if (carLaneThreeRowNineteen.y >= 900) {
+                            carLaneThreeRowNineteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneFourRowNineteen.y >= 900) {
+                            carLaneFourRowNineteen.y = setpoint;
+                            score = score + addScore;
+                        }
+                        
+                        // row twenty cars
+                        if (carLaneTwoRowTwenty.y >= 900) {
+                            carLaneTwoRowTwenty.y = setpoint;
+                            score = score + addScore;
+
+                        }
+                        if (carLaneThreeRowTwenty.y >= 900) {
+                            carLaneThreeRowTwenty.y = setpoint;
+                            score = score + addScore;
+                        }
+                        if (carLaneFourRowTwenty.y >= 900) {
+                            carLaneFourRowTwenty.y = setpoint;
+                            score = score + addScore;
+                        }
+
 
                         // get the players car to move left
                         if (usersCar.x > 100) {
