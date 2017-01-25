@@ -91,7 +91,6 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     Font title = new Font("Eras Bold ITC", Font.BOLD, 50);
     // set the font of how to play description
     Font description = new Font("Eras Bold ITC", Font.BOLD, 30);
-    
     // space between each rows of cars
     int rowSpace = 200;
     // set timer to speed up game
@@ -107,7 +106,6 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     Rectangle usersCar = new Rectangle(350, 650, 90, 180);
     // make positions in the array on each of the lanes on the roads
     Rectangle[] otherCars = new Rectangle[4];
-    
     // For Row One
     Rectangle carLaneOneRowOne = new Rectangle(115, 100, 90, 180);
     Rectangle carLaneTwoRowOne = new Rectangle(270, 100, 90, 180);
@@ -176,22 +174,19 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     Rectangle carLaneTwoRowTwenty = new Rectangle(270, -11400, 90, 180);
     Rectangle carLaneThreeRowTwenty = new Rectangle(435, -11400, 90, 180);
     Rectangle carLaneFourRowTwenty = new Rectangle(590, -11400, 90, 180);
-    
     // Repeat Background
     Rectangle backgroundOne = new Rectangle(0, 0, 800, 450);
     Rectangle backgroundTwo = new Rectangle(0, 450, 800, 450);
     Rectangle backgroundThree = new Rectangle(0, -450, 800, 450);
-    
     // start page
     Rectangle frontPage = new Rectangle(0, 0, WIDTH, HEIGHT);
     // how to play page
     Rectangle howTwoScreen = new Rectangle(0, 0, WIDTH, HEIGHT);
     // back button
     Rectangle backButton = new Rectangle(690, 10, 100, 50);
-
     // add music file
     MP3Player music = new MP3Player(new File("WHO IS THE BEST  Steph Curry - CP3 - Kyrie Irving - Russell Westbrook - JohnWall.mp3"));
-    
+
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
     // NOTE: This is already double buffered!(helps with framerate/speed)
@@ -208,22 +203,22 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             g.drawImage(background, backgroundTwo.x, backgroundTwo.y, backgroundTwo.width, backgroundTwo.height, null);
             g.drawImage(background, backgroundThree.x, backgroundThree.y, backgroundThree.width, backgroundThree.height, null);
             g.drawImage(back, backButton.x, backButton.y, backButton.width, backButton.height, null);
-            
+
         }
         // Draw the Front Screen Page
-        if (clicked != true && clickedTwo !=true) {
+        if (clicked != true && clickedTwo != true) {
             g.drawImage(startPage, frontPage.x, frontPage.y, frontPage.width, frontPage.height, null);
         }
         // Draw the How to Play Page
-        if(clickedTwo == true){
+        if (clickedTwo == true) {
             g.drawImage(howToPlay, howTwoScreen.x, howTwoScreen.y, howTwoScreen.width, howTwoScreen.height, null);
             g.drawImage(back, backButton.x, backButton.y, backButton.width, backButton.height, null);
-            
+
             // make title
             g.setColor(Color.red);
             g.setFont(title);
             g.drawString("How To Play", 230, 60);
-            
+
             // make how to play description
             g.setColor(Color.white);
             g.setFont(description);
@@ -232,8 +227,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             g.drawString("Left Arrow Key: Move the Car Left", 100, 250);
             g.drawString("R: Restart Game after car crashed", 105, 300);
         }
-        
-        
+
+
         // draw the players vehicle
         if (clicked == true) {
             g.setColor(Color.red);
@@ -290,12 +285,12 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             g.drawImage(carOne, carLaneTwoRowTen.x, carLaneTwoRowTen.y, carLaneTwoRowTen.width, carLaneTwoRowTen.height, null);
             g.drawImage(carTwo, carLaneThreeRowTen.x, carLaneThreeRowTen.y, carLaneThreeRowTen.width, carLaneThreeRowTen.height, null);
             g.drawImage(carThree, carLaneFourRowTen.x, carLaneFourRowTen.y, carLaneFourRowTen.width, carLaneFourRowTen.height, null);
-            
+
             // draw the cars on row eleven
             g.drawImage(carFour, carLaneOneRowEleven.x, carLaneOneRowEleven.y, carLaneOneRowEleven.width, carLaneOneRowEleven.height, null);
             g.drawImage(carFive, carLaneTwoRowEleven.x, carLaneTwoRowEleven.y, carLaneTwoRowEleven.width, carLaneTwoRowEleven.height, null);
             g.drawImage(carSix, carLaneFourRowEleven.x, carLaneFourRowEleven.y, carLaneFourRowEleven.width, carLaneFourRowEleven.height, null);
-            
+
             // draw the cars on row twelve
             g.drawImage(carSeven, carLaneOneRowTwelve.x, carLaneOneRowTwelve.y, carLaneOneRowTwelve.width, carLaneOneRowTwelve.height, null);
             g.drawImage(carOne, carLaneTwoRowTwelve.x, carLaneTwoRowTwelve.y, carLaneTwoRowTwelve.width, carLaneTwoRowTwelve.height, null);
@@ -304,12 +299,12 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             // draw the cars on row thirteen
             g.drawImage(carThree, carLaneOneRowThirteen.x, carLaneOneRowThirteen.y, carLaneOneRowThirteen.width, carLaneOneRowThirteen.height, null);
             g.drawImage(carFour, carLaneFourRowThirteen.x, carLaneFourRowThirteen.y, carLaneFourRowThirteen.width, carLaneFourRowThirteen.height, null);
-            
+
             // draw the cars on row fourteen
             g.drawImage(carFive, carLaneOneRowFourteen.x, carLaneOneRowFourteen.y, carLaneOneRowFourteen.width, carLaneOneRowFourteen.height, null);
             g.drawImage(carSix, carLaneThreeRowFourteen.x, carLaneThreeRowFourteen.y, carLaneThreeRowFourteen.width, carLaneThreeRowFourteen.height, null);
             g.drawImage(carSeven, carLaneFourRowFourteen.x, carLaneFourRowFourteen.y, carLaneFourRowFourteen.width, carLaneFourRowFourteen.height, null);
-            
+
             // draw the cars on row fifteen
             g.drawImage(carOne, carLaneTwoRowFifteen.x, carLaneTwoRowFifteen.y, carLaneTwoRowFifteen.width, carLaneTwoRowFifteen.height, null);
             g.drawImage(carTwo, carLaneFourRowFifteen.x, carLaneFourRowFifteen.y, carLaneFourRowFifteen.width, carLaneFourRowFifteen.height, null);
@@ -317,19 +312,19 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             // draw the cars on row sixteen 
             g.drawImage(carThree, carLaneOneRowSixteen.x, carLaneOneRowSixteen.y, carLaneOneRowSixteen.width, carLaneOneRowSixteen.height, null);
             g.drawImage(carFour, carLaneThreeRowSixteen.x, carLaneThreeRowSixteen.y, carLaneThreeRowSixteen.width, carLaneThreeRowSixteen.height, null);
-            
+
             // draw the cars on row seventeen
             g.drawImage(carFive, carLaneTwoRowSeventeen.x, carLaneTwoRowSeventeen.y, carLaneTwoRowSeventeen.width, carLaneTwoRowSeventeen.height, null);
             g.drawImage(carSix, carLaneThreeRowSeventeen.x, carLaneThreeRowSeventeen.y, carLaneThreeRowSeventeen.width, carLaneThreeRowSeventeen.height, null);
-            
+
             // draw the cars on row eighteen
             g.drawImage(carSeven, carLaneOneRowEighteen.x, carLaneOneRowEighteen.y, carLaneOneRowEighteen.width, carLaneOneRowEighteen.height, null);
             g.drawImage(carOne, carLaneTwoRowEighteen.x, carLaneTwoRowEighteen.y, carLaneTwoRowEighteen.width, carLaneTwoRowEighteen.height, null);
-            
+
             // draw the cars on row nineteen
             g.drawImage(carTwo, carLaneThreeRowNineteen.x, carLaneThreeRowNineteen.y, carLaneThreeRowNineteen.width, carLaneThreeRowNineteen.height, null);
             g.drawImage(carThree, carLaneFourRowNineteen.x, carLaneFourRowNineteen.y, carLaneFourRowNineteen.width, carLaneFourRowNineteen.height, null);
-            
+
             // draw the cars on row twenty
             g.drawImage(carFour, carLaneTwoRowTwenty.x, carLaneTwoRowTwenty.y, carLaneTwoRowTwenty.width, carLaneTwoRowTwenty.height, null);
             g.drawImage(carFive, carLaneThreeRowTwenty.x, carLaneThreeRowTwenty.y, carLaneThreeRowTwenty.width, carLaneThreeRowTwenty.height, null);
@@ -384,90 +379,90 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             carLaneOneRowOne = new Rectangle(115, 100, 90, 180);
             carLaneTwoRowOne = new Rectangle(270, 100, 90, 180);
             carLaneFourRowOne = new Rectangle(590, 100, 90, 180);
-            
+
             // For Row Two
             carLaneOneRowTwo = new Rectangle(115, -600, 90, 180);
             carLaneFourRowTwo = new Rectangle(590, -600, 90, 180);
-            
+
             // For Row Three
             carLaneTwoRowThree = new Rectangle(270, -1200, 90, 180);
             carLaneFourRowThree = new Rectangle(590, -1200, 90, 180);
-            
+
             // For Row Four
             carLaneTwoRowFour = new Rectangle(270, -1800, 90, 180);
             carLaneThreeRowFour = new Rectangle(435, -1800, 90, 180);
-            
+
             // For Row Five
             carLaneThreeRowFive = new Rectangle(435, -2400, 90, 180);
             carLaneFourRowFive = new Rectangle(590, -2400, 90, 180);
-            
+
             // For Row Six
             carLaneOneRowSix = new Rectangle(115, -3000, 90, 180);
             carLaneTwoRowSix = new Rectangle(270, -3000, 90, 180);
             carLaneThreeRowSix = new Rectangle(435, -3000, 90, 180);
-            
+
             // For Row Seven
             carLaneOneRowSeven = new Rectangle(115, -3600, 90, 180);
             carLaneThreeRowSeven = new Rectangle(435, -3600, 90, 180);
             carLaneFourRowSeven = new Rectangle(590, -3600, 90, 180);
-            
+
             // For Row Eight
             carLaneOneRowEight = new Rectangle(115, -4200, 90, 180);
             carLaneThreeRowEight = new Rectangle(435, -4200, 90, 180);
-            
+
             // For Row Nine
             carLaneOneRowNine = new Rectangle(115, -4800, 90, 180);
             carLaneTwoRowNine = new Rectangle(270, -4800, 90, 180);
-            
+
             // For Row Ten
             carLaneTwoRowTen = new Rectangle(270, -5400, 90, 180);
             carLaneThreeRowTen = new Rectangle(435, -5400, 90, 180);
             carLaneFourRowTen = new Rectangle(590, -5400, 90, 180);
-            
+
             // For Row Eleven
             carLaneOneRowEleven = new Rectangle(115, -6000, 90, 180);
             carLaneTwoRowEleven = new Rectangle(270, -6000, 90, 180);
             carLaneFourRowEleven = new Rectangle(590, -6000, 90, 180);
-            
+
             // For Row Twelve
             carLaneOneRowTwelve = new Rectangle(115, -6600, 90, 180);
             carLaneTwoRowTwelve = new Rectangle(270, -6600, 90, 180);
             carLaneThreeRowTwelve = new Rectangle(435, -6600, 90, 180);
-            
+
             // for row thirteen
             carLaneOneRowThirteen = new Rectangle(115, -7200, 90, 180);
             carLaneFourRowThirteen = new Rectangle(590, -7200, 90, 180);
-            
+
             // for row fourteen
             carLaneOneRowFourteen = new Rectangle(115, -7800, 90, 180);
             carLaneThreeRowFourteen = new Rectangle(435, -7800, 90, 180);
             carLaneFourRowFourteen = new Rectangle(590, -7800, 90, 180);
-            
+
             // for row fifteen
             carLaneTwoRowFifteen = new Rectangle(270, -8400, 90, 180);
             carLaneFourRowFifteen = new Rectangle(590, -8400, 90, 180);
-            
+
             // For Row sixteen
             carLaneOneRowSixteen = new Rectangle(115, -9000, 90, 180);
             carLaneThreeRowSixteen = new Rectangle(435, -9000, 90, 180);
-            
+
             // for row seventeen
             carLaneTwoRowSeventeen = new Rectangle(270, -9600, 90, 180);
             carLaneThreeRowSeventeen = new Rectangle(435, -9600, 90, 180);
-            
+
             // For Row Eighteen
             carLaneOneRowEighteen = new Rectangle(115, -10200, 90, 180);
             carLaneTwoRowEighteen = new Rectangle(270, -10200, 90, 180);
-            
+
             // For Row Nineteen
             carLaneThreeRowNineteen = new Rectangle(435, -10800, 90, 180);
             carLaneFourRowNineteen = new Rectangle(590, -10800, 90, 180);
-            
+
             // For Row Twenty
             carLaneTwoRowTwenty = new Rectangle(270, -11400, 90, 180);
             carLaneThreeRowTwenty = new Rectangle(435, -11400, 90, 180);
             carLaneFourRowTwenty = new Rectangle(590, -11400, 90, 180);
-              
+
         }
         restart = false;
     }
@@ -482,13 +477,13 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
 
         music.setRepeat(musicplay);
         music.play();
-        
-        musicTimer = musicTimer - 1; 
-        if(musicTimer == 0){
+
+        musicTimer = musicTimer - 1;
+        if (musicTimer == 0) {
             music.setRepeat(musicplay);
             musicTimer = 32400;
         }
-        
+
         // the main game loop section
         // game will end if you set done = false;
         boolean done = false;
@@ -500,8 +495,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             // GAME LOGIC STARTS HERE 
             if (clicked) {
                 if (start) {
-                    
-                // make the game stop when a collision happens
+
+                    // make the game stop when a collision happens
                     // row one collisons
                     if (usersCar.x >= (carLaneOneRowOne.x - Xhitbox) && usersCar.x <= (carLaneOneRowOne.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowOne.y - Yhitbox) && usersCar.y <= (carLaneOneRowOne.y + Yhitbox)) {
@@ -657,7 +652,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row twelve collisions
                     if (usersCar.x >= (carLaneOneRowTwelve.x - Xhitbox) && usersCar.x <= (carLaneOneRowTwelve.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowTwelve.y - Yhitbox) && usersCar.y <= (carLaneOneRowTwelve.y + Yhitbox)) {
@@ -674,7 +669,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row thirteen collisons
                     if (usersCar.x >= (carLaneOneRowThirteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowThirteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowThirteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowThirteen.y + Yhitbox)) {
@@ -686,7 +681,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row fourteen collisions
                     if (usersCar.x >= (carLaneOneRowFourteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowFourteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowFourteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowFourteen.y + Yhitbox)) {
@@ -703,7 +698,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row fifteen collisions
                     if (usersCar.x >= (carLaneTwoRowFifteen.x - Xhitbox) && usersCar.x <= (carLaneTwoRowFifteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneTwoRowFifteen.y - Yhitbox) && usersCar.y <= (carLaneTwoRowFifteen.y + Yhitbox)) {
@@ -715,7 +710,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row sixteen collisions
                     if (usersCar.x >= (carLaneThreeRowSixteen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowSixteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneThreeRowSixteen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowSixteen.y + Yhitbox)) {
@@ -727,7 +722,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row seventeen collisions
                     if (usersCar.x >= (carLaneTwoRowSeventeen.x - Xhitbox) && usersCar.x <= (carLaneTwoRowSeventeen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneTwoRowSeventeen.y - Yhitbox) && usersCar.y <= (carLaneTwoRowSeventeen.y + Yhitbox)) {
@@ -739,7 +734,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row eighteen collisions
                     if (usersCar.x >= (carLaneOneRowEighteen.x - Xhitbox) && usersCar.x <= (carLaneOneRowEighteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneOneRowEighteen.y - Yhitbox) && usersCar.y <= (carLaneOneRowEighteen.y + Yhitbox)) {
@@ -751,6 +746,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
+                    
                     // row nineteen collisions
                     if (usersCar.x >= (carLaneThreeRowNineteen.x - Xhitbox) && usersCar.x <= (carLaneThreeRowNineteen.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneThreeRowNineteen.y - Yhitbox) && usersCar.y <= (carLaneThreeRowNineteen.y + Yhitbox)) {
@@ -762,7 +758,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             dead = true;
                         }
                     }
-                    
+
                     // row twenty collisions
                     if (usersCar.x >= (carLaneTwoRowTwenty.x - Xhitbox) && usersCar.x <= (carLaneTwoRowTwenty.x + Xhitbox)) {
                         if (usersCar.y >= (carLaneTwoRowTwenty.y - Yhitbox) && usersCar.y <= (carLaneTwoRowTwenty.y + Yhitbox)) {
@@ -791,7 +787,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
 
                         if (time <= 0) {
                             speedOthers = speedOthers + 1;
-                            level = level + 1; 
+                            level = level + 1;
                             time = 1200;
                         }
 
@@ -843,46 +839,46 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                         carLaneTwoRowTen.y = carLaneTwoRowTen.y + speedOthers;
                         carLaneThreeRowTen.y = carLaneThreeRowTen.y + speedOthers;
                         carLaneFourRowTen.y = carLaneFourRowTen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row eleven
                         carLaneOneRowEleven.y = carLaneOneRowEleven.y + speedOthers;
                         carLaneTwoRowEleven.y = carLaneTwoRowEleven.y + speedOthers;
                         carLaneFourRowEleven.y = carLaneFourRowEleven.y + speedOthers;
-                        
+
                         // set the speed for the cars on row twelve
                         carLaneOneRowTwelve.y = carLaneOneRowTwelve.y + speedOthers;
                         carLaneTwoRowTwelve.y = carLaneTwoRowTwelve.y + speedOthers;
                         carLaneThreeRowTwelve.y = carLaneThreeRowTwelve.y + speedOthers;
-                        
+
                         // set the speed for the cars on row thirteen
                         carLaneOneRowThirteen.y = carLaneOneRowThirteen.y + speedOthers;
                         carLaneFourRowThirteen.y = carLaneFourRowThirteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row fourteen
                         carLaneOneRowFourteen.y = carLaneOneRowFourteen.y + speedOthers;
                         carLaneThreeRowFourteen.y = carLaneThreeRowFourteen.y + speedOthers;
                         carLaneFourRowFourteen.y = carLaneFourRowFourteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row fifteen
                         carLaneTwoRowFifteen.y = carLaneTwoRowFifteen.y + speedOthers;
                         carLaneFourRowFifteen.y = carLaneFourRowFifteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row sixteen
                         carLaneOneRowSixteen.y = carLaneOneRowSixteen.y + speedOthers;
                         carLaneThreeRowSixteen.y = carLaneThreeRowSixteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row seventeen
                         carLaneTwoRowSeventeen.y = carLaneTwoRowSeventeen.y + speedOthers;
                         carLaneThreeRowSeventeen.y = carLaneThreeRowSeventeen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row eighteen
                         carLaneOneRowEighteen.y = carLaneOneRowEighteen.y + speedOthers;
                         carLaneTwoRowEighteen.y = carLaneTwoRowEighteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row nineteen
                         carLaneThreeRowNineteen.y = carLaneThreeRowNineteen.y + speedOthers;
                         carLaneFourRowNineteen.y = carLaneFourRowNineteen.y + speedOthers;
-                        
+
                         // set the speed for the cars on row ten
                         carLaneTwoRowTwenty.y = carLaneTwoRowTwenty.y + speedOthers;
                         carLaneThreeRowTwenty.y = carLaneThreeRowTwenty.y + speedOthers;
@@ -1015,7 +1011,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowTen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // Row eleven cars
                         if (carLaneOneRowEleven.y >= 900) {
                             carLaneOneRowEleven.y = setpoint;
@@ -1029,7 +1025,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowEleven.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row twelve cars
                         if (carLaneOneRowTwelve.y >= 900) {
                             carLaneOneRowTwelve.y = setpoint;
@@ -1043,7 +1039,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneThreeRowTwelve.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // for thirteen cars
                         if (carLaneOneRowThirteen.y >= 900) {
                             carLaneOneRowThirteen.y = setpoint;
@@ -1053,7 +1049,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowThirteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row fourteen cars
                         if (carLaneOneRowFourteen.y >= 900) {
                             carLaneOneRowFourteen.y = setpoint;
@@ -1067,7 +1063,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowFourteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row fifteen cars
                         if (carLaneTwoRowFifteen.y >= 900) {
                             carLaneTwoRowFifteen.y = setpoint;
@@ -1077,7 +1073,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowFifteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row sixteen cars
                         if (carLaneOneRowSixteen.y >= 900) {
                             carLaneOneRowSixteen.y = setpoint;
@@ -1087,7 +1083,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneThreeRowSixteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row seventeen cars
                         if (carLaneTwoRowSeventeen.y >= 900) {
                             carLaneTwoRowSeventeen.y = setpoint;
@@ -1097,7 +1093,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneThreeRowSeventeen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row eighteen cars
                         if (carLaneOneRowEighteen.y >= 900) {
                             carLaneOneRowEighteen.y = setpoint;
@@ -1107,7 +1103,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneTwoRowEighteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row nineteen cars
                         if (carLaneThreeRowNineteen.y >= 900) {
                             carLaneThreeRowNineteen.y = setpoint;
@@ -1117,7 +1113,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
                             carLaneFourRowNineteen.y = setpoint;
                             score = score + addScore;
                         }
-                        
+
                         // row twenty cars
                         if (carLaneTwoRowTwenty.y >= 900) {
                             carLaneTwoRowTwenty.y = setpoint;
@@ -1210,7 +1206,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        
+
         if (key == KeyEvent.VK_LEFT) {
             carLeft = true;
         }
@@ -1247,7 +1243,7 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         // get the x and y coordinates on the screen
         int x = e.getX();
         int y = e.getY();
-        
+
         // start button
         if (x >= 10 && x <= 192) {
             if (y >= 717 && y <= 778) {
@@ -1261,8 +1257,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             }
         }
         // back button to go back to front menu
-        if(x >= 700 && x <= 800){
-            if(y >= 10 && y <= 60){
+        if (x >= 700 && x <= 800) {
+            if (y >= 10 && y <= 60) {
                 clicked = false;
                 clickedTwo = false;
             }
