@@ -91,6 +91,8 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
     Font title = new Font("Eras Bold ITC", Font.BOLD, 50);
     // set the font of how to play description
     Font description = new Font("Eras Bold ITC", Font.BOLD, 30);
+    // set the font of the company name
+    Font company  = new Font ("Arial", Font.BOLD, 15);
     // space between each rows of cars
     int rowSpace = 200;
     // set timer to speed up game
@@ -208,6 +210,11 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
         // Draw the Front Screen Page
         if (clicked != true && clickedTwo != true) {
             g.drawImage(startPage, frontPage.x, frontPage.y, frontPage.width, frontPage.height, null);
+            
+            // make company name
+            g.setColor(Color.white);
+            g.setFont(company);
+            g.drawString("Powered By KHAN ENGINE©", 575, 885);
         }
         // Draw the How to Play Page
         if (clickedTwo == true) {
@@ -226,6 +233,11 @@ public class Testing extends JComponent implements KeyListener, MouseListener {
             g.drawString("Right Arrow Key: Move the Car Right", 85, 200);
             g.drawString("Left Arrow Key: Move the Car Left", 100, 250);
             g.drawString("R: Restart Game after car crashed", 105, 300);
+            
+            // company name
+            g.setColor(Color.white);
+            g.setFont(company);
+            g.drawString("Powered By KHAN ENGINE©", 575, 885);
         }
 
 
